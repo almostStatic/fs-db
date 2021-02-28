@@ -52,6 +52,7 @@ class Database {
     if (key.startsWith('/')) key = key.replace('/', '');
     opts = this.fornatOptions(opts, "g");
     let path = this.getFilePath(opts.precisePath + "/" + key);
+    if (!fs.existsSync(path)) return null;
     let types = [ [ "bigint", BigInt ], [ "number", Number ], [ "date", Date ], [ "str", String ], [ "json", JSON.parse ] ];
     let value = fs.readFileSync(path, { encoding: opts.encoding, flag: opts.flag }) || null;
     let type = types.findIndex((f) => opts.dataType.toLowerCase().startsWith(f[0])) || 3;

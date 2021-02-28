@@ -1,0 +1,25 @@
+{
+  "name": "fs-db0",
+  "version": "0.0.2",
+  "description": "A cool WIP package, allowing for use of the fs package as a database wrapper. Comes with get(), set(), and remove() functions (more coming soon)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/almostStatic/fs-db.git"
+  },
+  "keywords": [
+    "filesystem",
+    "fs",
+    "db",
+    "database"
+  ],
+  "author": "@almoststatic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/almostStatic/fs-db/issues"
+  },
+  "homepage": "https://github.com/almostStatic/fs-db#readme"
+}
