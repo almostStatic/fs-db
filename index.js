@@ -40,7 +40,7 @@ class Database {
     return opts;
   };
   /**
-   * 
+   * Gets the value of a key from the database with optional data type to return it as.
    * @param {String} key Name of key to get from database
    * @param {Object} opts Options 
    * @param {String} opts.precisePath Additional precision for the path of the file added on top of the path specified
