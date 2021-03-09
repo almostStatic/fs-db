@@ -73,7 +73,7 @@ class Database {
     return true;
   };
   /**
-   * Removes a value from your filesystem database, deleting the txt file
+   * Removes a value from your filesystem database, thus deleting the txt file
    * @param {String} key Name of they key to remove
    * @param {Object} opts Options to remove the file with
    * @param {String} opts.precisePath Any subfolder in the current path which this is meant to be set in
