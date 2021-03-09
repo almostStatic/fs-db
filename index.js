@@ -22,12 +22,22 @@ class Database {
       };
     };
 	};
-  
+  /**
+   * Determines the path of the database entry.
+   * @param {String} p path of file
+   * @private
+   */
   getFilePath(p) {
     if (!p) return this.path;
     if (p.startsWith('/')) p = p.slice(1, p.length);
     return this.path + p;
   };
+  /**
+   * This is used to ensure that no properties of a function are null or undefined, this is used to ensure that errors are not produced elsewhere due to a variable being undefined/null.
+   * @param {Object} opts Supplied options object
+   * @param {String} func Name of function to format opts for
+   * @private
+   */
   fornatOptions(opts = {}, func) {
     if (func == "g") {
       //"g", get function
