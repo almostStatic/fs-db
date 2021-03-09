@@ -65,7 +65,8 @@ class Database {
    * @param {Object} options Options of which this must be set under
    * @param {String} options.precisePath Any subfolder in the current path which this is meant to be set in
    */
-  set(key, value, opts = { precisePath: null }) {
+  set(key, value, opts = { precisePath: "" }) {
+    if (!opts.precisePath) opts.precisePath = "";
     let path = this.getFilePath(opts.precisePath);
     if (!fs.existsSync(path)) fs.mkdirSync(path);
     fs.writeFileSync(path + '/' + key, value);
@@ -78,6 +79,7 @@ class Database {
    * @param {String} opts.precisePath Any subfolder in the current path which this is meant to be set in
    */
   remove(key, opts = { precisePath: "" }) {
+    if (!opts.precisePath) opts.precisePath = "";
     let path = this.getFilePath(opts.precisePath + '/' + key);
     try {
       fs.unlinkSync(path);
@@ -85,6 +87,20 @@ class Database {
       throw error;
     };
     return true; //success
+  };
+  /**
+   * Gets all the entries saved into said <dir> path. Returns a 2 dimensional array. Ignores subfolders in said directory.
+   * @param {String} dir Directory of which to get key/value pairs. If this is not specified, then it will default to Database.path
+   * @returns {Array<string>} entries 
+   */
+  entries(dir = "") {
+    let dir = this.getFilePath(this.path + dir);
+    let data = [];
+    for (file of fs.readdirSync(dir)) {
+      let bfr = Buffer.from(fs.readFileSync(`${dir}/${file}`)).toString("ascii");
+      data.push([file, bfr]);
+    };
+    return data;
   };
 };
 
