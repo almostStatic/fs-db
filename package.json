@@ -1,6 +1,6 @@
 {
   "name": "fs-db0",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "A cool WIP package, allowing for use of the fs package as a database wrapper. Comes with get(), set(), and remove() functions (more coming soon)",
   "main": "index.js",
   "scripts": {
